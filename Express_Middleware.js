@@ -30,6 +30,12 @@ app.listen(5000, () => {
 // Function based on authorization !
 app.use([Logger, authorize]);
 
+// Another way to use !
+app.get("./middleware", [Logger, authorize], () => {
+  res.send("Middleware Page");
+});
+
+
 const authorize = (req, res, next) => {
   const { user } = req.query;
 
