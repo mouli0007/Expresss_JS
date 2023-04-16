@@ -12,6 +12,12 @@ app.use("/about",Logger);
 
 app.use([Logger, authorize]);
 
+// Midddleware functions for parsing the json data response 
+app.use(express.json());
+
+// Middleware functions for parsing the normal HTML form input 
+app.use(express.urlencoded({ extended: false }));
+
 
 app.get("/", (req, res) => {
   res.send("Home");
