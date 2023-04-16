@@ -31,3 +31,12 @@ router.get("/", getPeople);
 // Create a person !
 
 router.post("/", createPerson);
+
+
+################ Chainning the route with funcitons ! ###############
+
+	If we have a same routing path we can chain it with the relevant funciton
+	
+router.route("/").get(getPeople).post(createPerson);
+
+router.route("/:id").put(updatePerson).delete(deletePerson);
